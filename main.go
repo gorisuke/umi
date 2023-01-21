@@ -19,10 +19,12 @@ func main() {
 	})
 	engine.GET("/", func(c *gin.Context) {
 		time := time.Now()
+		id := c.Query("id")
 		c.JSON(http.StatusOK, gin.H{
 			"message":    "hello world",
 			"User-Agent": ua,
 			"accessTime": time,
+			"reqestedId": id,
 		})
 	})
 	engine.Run(":3000")
