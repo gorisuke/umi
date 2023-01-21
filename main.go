@@ -27,5 +27,17 @@ func main() {
 			"reqestedId": id,
 		})
 	})
+
+	engine.POST("/", func(c *gin.Context) {
+		time := time.Now()
+		name := c.PostForm("name")
+		age := c.PostForm("age")
+		c.JSON(http.StatusOK, gin.H{
+			"message":    "hello world",
+			"accessTime": time,
+			"name":       name,
+			"age":        age,
+		})
+	})
 	engine.Run(":3000")
 }
