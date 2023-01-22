@@ -39,5 +39,14 @@ func main() {
 			"age":        age,
 		})
 	})
+
+	engine.GET("/user", func(c *gin.Context) {
+		id := c.Query("id")
+		c.JSON(http.StatusOK, gin.H{
+			"message":    "hello world",
+			"User-Agent": ua,
+			"id":         id,
+		})
+	})
 	engine.Run(":3000")
 }
