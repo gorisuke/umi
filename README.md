@@ -3,7 +3,7 @@
 
 This repository is for a web application called "umi".
 
-Basically, it is built using Go. gin, a Go web framework, is used.
+Basically, it is built using [Go](https://go.dev/). [gin](https://gin-gonic.com/), a Go web framework, is used.
 ## Deployment
 
 Lecture on development methods.
