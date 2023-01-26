@@ -5,13 +5,15 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	engine := gin.Default()
 	ua := ""
-	// ミドルウェアを使用
+	color.Green("Prints text in cyan.")
+
 	engine.Use(func(c *gin.Context) {
 		ua = c.GetHeader("User-Agent")
 		log.Println("All Request Middleware")
