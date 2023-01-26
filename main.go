@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -14,7 +14,7 @@ func main() {
 	// ミドルウェアを使用
 	engine.Use(func(c *gin.Context) {
 		ua = c.GetHeader("User-Agent")
-		fmt.Println("Use Middle Ware")
+		log.Println("All Request Middleware")
 		c.Next()
 	})
 	engine.GET("/", func(c *gin.Context) {
@@ -49,13 +49,17 @@ func main() {
 		})
 	})
 
-	engine.GET("/schedule", func(c *gin.Context) {
-		id := c.Query("id")
+	engine.GET("/schedule", protectedMiddleware(), func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message":    "hello world",
-			"User-Agent": ua,
-			"id":         id,
+			"message": "hello world",
 		})
 	})
 	engine.Run(":3000")
+}
+func protectedMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		log.Println("before logic")
+		c.Next()
+		log.Println("after logic")
+	}
 }
