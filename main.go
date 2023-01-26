@@ -10,10 +10,11 @@ import (
 )
 
 func main() {
+	color.Yellow("Starting....")
 	engine := gin.Default()
 	ua := ""
-	color.Green("Prints text in cyan.")
 
+	color.Green("Started Server")
 	engine.Use(func(c *gin.Context) {
 		ua = c.GetHeader("User-Agent")
 		log.Println("All Request Middleware")
