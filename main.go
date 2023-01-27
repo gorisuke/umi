@@ -62,7 +62,12 @@ func main() {
 func protectedMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log.Println("before logic")
-		c.Next()
+		log.Println(c.Query("id"))
+		if c.Query("id") != "" {
+			c.Next()
+		} else {
+			c.AbortWithStatus(403)
+		}
 		log.Println("after logic")
 	}
 }
