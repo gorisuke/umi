@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	"umi/auth"
 
 	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
@@ -61,6 +62,7 @@ func main() {
 }
 func protectedMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		log.Println(auth.AuthUmi())
 		if c.Query("id") != "" {
 			c.Next()
 		} else {

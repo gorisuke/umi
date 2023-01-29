@@ -35,4 +35,7 @@ require (
 	golang.org/x/text v0.6.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	umi/auth v0.0.0-00010101000000-000000000000 // indirect
 )
+
+replace umi/auth => ./auth
