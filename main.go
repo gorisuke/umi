@@ -62,7 +62,7 @@ func main() {
 }
 func protectedMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		log.Println(auth.AuthUmi())
+		log.Println(auth.AuthUmi(c))
 		if c.Query("id") != "" {
 			c.Next()
 		} else {
