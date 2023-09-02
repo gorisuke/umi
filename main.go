@@ -10,6 +10,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var serverStartedTime = time.Now()
+
 func main() {
 	color.Yellow("Starting....")
 	engine := gin.Default()
@@ -25,10 +27,10 @@ func main() {
 		time := time.Now()
 		id := c.Query("id")
 		c.JSON(http.StatusOK, gin.H{
-			"message":    "hello world",
+			"message":    "This API is Test API!!!!!!!!!!!",
 			"User-Agent": ua,
 			"accessTime": time,
-			"reqestedId": id,
+			"requestId":  id,
 		})
 	})
 
