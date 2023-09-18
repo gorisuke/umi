@@ -88,4 +88,4 @@ Temporary Items
 .apdisk
 tmp/*
 
-docker/data/*
+/docker/data/*
