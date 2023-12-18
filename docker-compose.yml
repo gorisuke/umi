@@ -5,8 +5,8 @@ services:
     build: ./docker/app
     tty: true
     volumes:
-      - .:/app
-    working_dir: /app
+      - ./app:/go/app
+    working_dir: /go/app
     ports:
       - 3000:3000
   db:
