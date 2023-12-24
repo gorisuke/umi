@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"umi/auth"
 	"umi/router"
 
 	"github.com/gin-gonic/gin"
@@ -10,10 +11,7 @@ import (
 func main() {
 	log.Println("ServerStarting")
 	engine := gin.Default()
-	engine.Use(func(c *gin.Context) {
-		log.Println("Request Middleware!")
-		c.Next()
-	})
+	engine.Use(auth.JwtAuthentication())
 	router.SetRoutes(engine)
 	engine.Run(":3000")
 }
