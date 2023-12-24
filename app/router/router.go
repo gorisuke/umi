@@ -9,7 +9,7 @@ import (
 func SetRoutes(engine *gin.Engine) {
 	engine.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Welcome to the umi API",
+			"message": "Welcome to the umi API!!",
 		})
 	})
 }

@@ -9,15 +9,7 @@ Basically, it is built using [Go](https://go.dev/). [gin](https://gin-gonic.com/
 Lecture on development methods.
 1. Install Air
     ```bash
-    go install github.com/cosmtrek/air@latest
-    ```
-2. Change DIR to Project
-    ```bash
-    cd umi
-    ```
-3. Run development web server
-    ```bash
-    air
+    docker compose up -d
     ```
 ## API Reference
 
