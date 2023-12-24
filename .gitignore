@@ -86,6 +86,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-tmp/*
+app/tmp/*
 
 docker/db/data/*
