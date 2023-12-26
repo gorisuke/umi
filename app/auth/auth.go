@@ -14,7 +14,7 @@ func AuthUmi(c *gin.Context) bool {
 func JwtAuthentication() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log.Println("JWT Auth")
-		flag := false
+		flag := true
 		if flag {
 			c.Next()
 		} else {

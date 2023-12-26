@@ -2,7 +2,9 @@ package main
 
 import (
 	"log"
+	"os"
 	"umi/auth"
+	"umi/initializers"
 	"umi/router"
 
 	"github.com/gin-gonic/gin"
@@ -10,8 +12,12 @@ import (
 
 func main() {
 	log.Println("ServerStarting")
+	initializers.LoadEnv()
+	initializers.ConnectToDb()
 	engine := gin.Default()
-	engine.Use(auth.JwtAuthentication())
+	application := engine.Group("/app")
+	application.Use(auth.JwtAuthentication())
+	router.SetAppRoutes(application)
 	router.SetRoutes(engine)
-	engine.Run(":3000")
+	engine.Run(os.Getenv("PORT"))
 }
